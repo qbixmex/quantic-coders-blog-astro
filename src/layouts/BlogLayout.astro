@@ -7,21 +7,9 @@ type Props = {
 	title: string;
 	description: string;
 	robots: MetaRobots;
-	frontmatter: {
-		title: string;
-		date: string;
-		description: string;
-		author: string;
-		image: string;
-		tags: string[],
-		file: string;
-		url: string;
-	},
 };
 
-const { title, description, robots, ...rest } = Astro.props;
-
-const frontmatter = rest.frontmatter;
+const { title, description, robots } = Astro.props;
 ---
 
 <html lang="en">
@@ -30,7 +18,7 @@ const frontmatter = rest.frontmatter;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- SEO -->
-		<title>{frontmatter.title}</title>
+		<title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <!-- OG Tags -->
@@ -49,6 +37,6 @@ const frontmatter = rest.frontmatter;
 
 <style>
   body {
-    @apply min-h-[100vh] place-content-center bg-slate-900;
+		@apply bg-slate-900;
   }
 </style>
