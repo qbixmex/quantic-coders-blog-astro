@@ -1,0 +1,37 @@
+---
+import type { MetaRobots } from "@interfaces/meta";
+
+type Props = {
+	title: string;
+	description: string;
+	robots: MetaRobots;
+};
+const { title, description, robots } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- SEO -->
+		<title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <!-- OG Tags -->
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<!-- <meta name="og:image" content={siteInfo.image} /> -->
+	</head>
+	<body>
+    <main>
+      <slot />
+    </main>
+	</body>
+</html>
+
+<style>
+  body {
+    @apply min-h-[100vh] place-content-center bg-slate-900;
+  }
+</style>
