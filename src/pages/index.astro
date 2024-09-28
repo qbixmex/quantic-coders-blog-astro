@@ -1,13 +1,27 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import siteConfig from "@config/site-config";
+import BlogPost from "@components/BlogPost.astro";
 ---
 
 <MainLayout
-	title="Quantic Coders Blog"
-	description="Astro Blog is a statically generated blog using Astro and Tailwind CSS."
+	title={siteConfig.title}
+	description={siteConfig.description}
 	robots="index, follow"
 >
-	<div class="container px-5 my-5 mx-auto">
-		<h1 class="text-8xl text-purple-500 text-center font-bold">Astro</h1>
+	<!-- component -->
+<section class="bg-white dark:bg-gray-900">
+	<div class="container px-6 py-10 mx-auto">
+			<h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">From the blog</h1>
+
+			<div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+				<BlogPost title="How to use sticky note for problem solving" imageURL="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" date="On: 20 October 2019" />
+				<BlogPost title="How to use sticky note for problem solving" imageURL="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" date="On: 2th January 2020" />
+				<BlogPost title="Morning routine to boost your mood" imageURL="https://images.unsplash.com/photo-1544654803-b69140b285a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" date="On: 18 March 2022" />
+				<BlogPost title="All the features you want to know" imageURL="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80" date="On: 22 April 2022" />
+				<BlogPost title="Minimal workspace for your inspirations" imageURL="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80" date="On: 14 May 2022" />
+				<BlogPost title="What do you want to know about Blockchane" imageURL="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" date="On: 24 June 2023" />
+			</div>
 	</div>
+</section>
 </MainLayout>

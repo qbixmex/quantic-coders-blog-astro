@@ -1,0 +1,27 @@
+---
+type Props = {
+  title: string;
+  date: string;
+  imageURL: string;
+};
+
+const { title, date, imageURL } = Astro.props;
+---
+
+<div class="lg:flex">
+  <img
+    class="object-cover w-full h-56 rounded-lg lg:w-64"
+    src={imageURL}
+    alt={title}
+  />
+
+  <div class="flex flex-col justify-between py-6 lg:mx-6">
+      <a href="#" class="text-xl font-semibold hover:underline text-white ">
+          How to use sticky note for problem solving
+      </a>
+      
+      <span class="text-sm text-gray-300">
+        {date}
+      </span>
+  </div>
+</div>
