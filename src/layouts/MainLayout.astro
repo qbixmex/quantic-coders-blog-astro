@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import type { MetaRobots } from "@interfaces/meta";
 
 type Props = {
@@ -22,6 +23,7 @@ const { title, description, robots } = Astro.props;
 		<meta name="og:title" content={title} />
 		<meta name="og:description" content={description} />
 		<!-- <meta name="og:image" content={siteInfo.image} /> -->
+		<ViewTransitions />
 	</head>
 	<body>
     <main>

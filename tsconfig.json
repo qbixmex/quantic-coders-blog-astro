@@ -3,27 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@icons/*": [
-        "./src/icons/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@services/*": [
-        "./src/services/*"
-      ],
-      "@data/*": [
-        "./src/data/*"
-      ],
-      "@interfaces/*": [
-        "./src/interfaces/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ]
+      "@icons/*": ["./src/icons/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@services/*": ["./src/services/*"],
+      "@data/*": ["./src/data/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@styles/*": ["./src/styles/*"],
     },
     // "jsx": "preserve",
     // "jsxImportSource": "solid-js"

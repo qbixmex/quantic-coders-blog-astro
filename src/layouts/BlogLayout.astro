@@ -1,0 +1,54 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import type { MetaRobots } from "@interfaces/meta";
+import "@styles/blog.css";
+
+type Props = {
+	title: string;
+	description: string;
+	robots: MetaRobots;
+	frontmatter: {
+		title: string;
+		date: string;
+		description: string;
+		author: string;
+		image: string;
+		tags: string[],
+		file: string;
+		url: string;
+	},
+};
+
+const { title, description, robots, ...rest } = Astro.props;
+
+const frontmatter = rest.frontmatter;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- SEO -->
+		<title>{frontmatter.title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <!-- OG Tags -->
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<!-- <meta name="og:image" content={siteInfo.image} /> -->
+     <ViewTransitions />
+	</head>
+	<body>
+    <a href="/">Back</a>
+    <main>
+      <slot />
+    </main>
+	</body>
+</html>
+
+<style>
+  body {
+    @apply min-h-[100vh] place-content-center bg-slate-900;
+  }
+</style>
