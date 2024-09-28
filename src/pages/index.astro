@@ -1,9 +1,9 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import siteConfig from "@config/site-config";
+import { getCollection } from "astro:content";
 
 import "./blog.css";
-import { getCollection } from "astro:content";
 import TypedBlogPost from "@components/TypedBlogPost.astro";
 
 const blogPosts = await getCollection("blog");

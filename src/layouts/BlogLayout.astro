@@ -12,7 +12,7 @@ type Props = {
 const { title, description, robots } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,7 +28,7 @@ const { title, description, robots } = Astro.props;
      <ViewTransitions />
 	</head>
 	<body>
-    <a href="/">Back</a>
+    <a href="/" id="btn-back">Regresar</a>
     <main>
       <slot />
     </main>

@@ -1,0 +1,19 @@
+.heading {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-purple-500 mb-0;
+}
+
+.metaData {
+  @apply text-sm sm:text-base text-gray-500 italic mt-2 mb-2;
+}
+
+.subheading {
+  @apply text-pink-500 text-xl;
+}
+
+#content-data {
+  @apply w-[400px] bg-slate-800 p-5 rounded flex flex-col gap-2;
+
+  & p {
+    @apply pl-2 m-0;
+  }
+}
