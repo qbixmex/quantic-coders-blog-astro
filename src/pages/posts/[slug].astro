@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BlogLayout from "@layouts/BlogLayout.astro";
@@ -26,6 +27,16 @@ const { Content, headings } = await post.render();
   description="Lorem Ipsum dolor dolem"
   robots="index, follow"
 >
+  <Picture
+    src={frontmatter.image}
+    formats={["webp", "avif", "jpeg"]}
+    class="w-full h-[300px] object-cover object-center rounded-md mt-5"
+    widths={[500, 640, 720, frontmatter.image.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 640px) 640px, (max-width: 1280px) 720px, ${frontmatter.image.width}px`}
+    alt={frontmatter.title}
+    transition:name={`${post.slug}-image`}
+  />
+
   <p class="metaData">Author: {frontmatter.author}</p>
   <p class="metaData">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
 

@@ -4,9 +4,11 @@ import { z, defineCollection } from "astro:content";
 // 2. Define a "type" and "schema" for each collection.
 const blogCollection = defineCollection({
   type: "content",
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
-    image: z.string(),
+    image: image().refine((img) => img.width < 1280, {
+      message: "Image width must be lower than 1280px width",
+    }),
     date: z.date(),
     description: z.string(),
     author: z.string(), // Relationship
