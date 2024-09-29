@@ -12,6 +12,7 @@
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
       "@config/*": ["./src/config/*"],
+      "@images/*": ["./src/assets/images/*"],
     },
     // "jsx": "preserve",
     // "jsxImportSource": "solid-js"

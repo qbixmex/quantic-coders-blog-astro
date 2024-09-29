@@ -1,0 +1,7 @@
+.heading {
+  @apply text-5xl text-green-500 text-center my-5;
+}
+
+.divider {
+  @apply w-full h-0.5 my-10 bg-gray-600;
+}
