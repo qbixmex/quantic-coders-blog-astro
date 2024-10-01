@@ -1,5 +1,5 @@
 .heading {
-  @apply text-5xl text-green-500 text-center my-5;
+  @apply text-3xl text-center font-normal text-purple-500 md:text-4xl lg:text-5xl;
 }
 
 .divider {

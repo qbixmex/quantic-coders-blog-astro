@@ -16,8 +16,17 @@ const blogPosts = await getCollection("blog");
 >
 	<section id="mainWrapper">
 		<div id="content">
-			<h1>{siteConfig.title}</h1>
+			<h1 class="heading">{siteConfig.title}</h1>
+
 			<div class="divider"></div>
+
+			<div class="text-right">
+				<a
+					class="text-sky-500 hover:underline hover:text-sky-600"
+					href="/blog/1"
+				>Paginated Blog</a>
+			</div>
+
 			<div id="grid">
 				{ blogPosts.map((post) => <TypedBlogPost post={post} />) }
 			</div>

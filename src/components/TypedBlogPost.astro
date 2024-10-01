@@ -12,27 +12,30 @@ const frontmatter = post.data;
 ---
 
 <div class="lg:flex">
-  <a href={`/posts/${post.slug}`}>
-    <Image
-      class="object-cover w-full h-56 rounded-lg lg:w-64"
-      src={frontmatter.image}
-      alt={frontmatter.title}
-      format="webp"
-      quality="low"
-      loading="lazy"
-      width={300}
-      height={300}
-      transition:name={`${post.slug}-image`}
-    />
-  </a>
+  <div class="mb-5 lg:mb-0 md:w-1/2 xl:w-1/4">
+    <a href={`/posts/${post.slug}`}>
+      <Image
+        class="object-cover w-full h-56 rounded-lg lg:w-64"
+        src={frontmatter.image}
+        alt={frontmatter.title}
+        format="webp"
+        quality="low"
+        loading="lazy"
+        width={300}
+        height={300}
+        transition:name={`${post.slug}-image`}
+      />
+    </a>
+  </div>
 
-  <div class="flex flex-col justify-between py-6 lg:mx-6">
-      <a href={"#"} class="text-xl font-semibold hover:underline text-white">
-        {frontmatter.description}
-      </a>
-      
-      <span class="text-sm text-gray-300">
-        {Formatter.formatDate(frontmatter.date)}
-      </span>
+  <div class="md:w-1/2 xl:w-3/4 flex flex-col lg:mx-6">
+    <a
+      href={`/posts/${post.slug}`}
+      class="text-xl font-semibold hover:underline text-white text-balance"
+    >{frontmatter.description}</a>
+    
+    <span class="text-sm text-gray-300">
+      {Formatter.formatDate(frontmatter.date)}
+    </span>
   </div>
 </div>

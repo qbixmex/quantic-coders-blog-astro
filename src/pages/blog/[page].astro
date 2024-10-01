@@ -1,0 +1,63 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import TypedBlogPost from '@components/TypedBlogPost.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogPosts = await getCollection('blog');
+
+  return paginate(blogPosts, { pageSize: 2 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<MainLayout
+  title="Quantic Coders Blog - Paginado"
+  description='Latest blog posts from Quantic Coders where you can find articles about technology, programming, and more.'
+  robots="index, follow"
+>
+  <div class="container px-5 py-10 mx-auto">
+    <h1 class="heading text-3xl font-semibold capitalize lg:text-4xl text-white">
+      Quantic Coders Blog
+      <span class="lowercase text-gray-500 text-base">(paginado)</span>
+    </h1>
+
+    <div class="divider"></div>
+
+    <div class="text-right">
+      <a
+        class="text-sky-500 hover:underline hover:text-sky-600"
+        href="/"
+      >Back Home</a>
+    </div>
+
+    <section class="bg-gray-900" aria-label="Entradas de blog">
+      <div class="grid grid-cols-1 gap-8 my-8 md:mt-16 md:grid-cols-2">
+        {page.data.map((post) => <TypedBlogPost post={post} />)}
+      </div>
+    </section>
+
+    <section aria-label="Controles" class="flex justify-between">
+      <a
+        href={page.url.prev}
+        class:list={["btn-primary", { disabled: !page.url.prev }]}
+      >Anteriores</a>
+      <a
+        href={page.url.next}
+        class:list={["btn-primary", { disabled: !page.url.next }]}
+      >Siguientes</a>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .btn-primary {
+    @apply bg-blue-500 text-white p-2 rounded hover:bg-blue-600 cursor-pointer;
+  }
+
+  .disabled {
+    @apply bg-gray-600 hover:bg-gray-600;
+  }
+</style>
