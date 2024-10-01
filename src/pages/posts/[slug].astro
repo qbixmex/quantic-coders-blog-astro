@@ -1,14 +1,13 @@
 ---
 import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
 import BlogLayout from "@layouts/BlogLayout.astro";
 import Formatter from "@utils/formatter";
-
 import "@styles/blog-post.css";
 
 export const getStaticPaths = (async () => {
-
   const blogPosts = await getCollection("blog");
 
   return blogPosts.map((blogPost) => ({
@@ -19,8 +18,9 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props;
 const frontmatter = post.data;
+
 const { Content, headings } = await post.render();
-const author = post.data.author.id.replaceAll("-", " ");
+const author = (await getEntry("author", post.data.author.id)).data;
 ---
 
 <BlogLayout
@@ -38,9 +38,19 @@ const author = post.data.author.id.replaceAll("-", " ");
     transition:name={`${post.slug}-image`}
   />
 
-  <section class="metadata-wrapper">
-    <p class="metadata">Author: <a href="#">{author}</a></p>
-    <p class="metadata">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
+  <section class="metadata-author">
+    <Image
+      src={author.avatar}
+      class="metadata-author-image"
+      width={50}
+      height={50}
+      alt={`${author.name} Avatar`}
+      quality="mid"
+    />
+    <div class="metadata-author-info">
+      <a class="metadata-author-name" href="#">{author.name}</a>
+      <p class="metadata-date">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
+    </div>
   </section>
 
   <h3 class="subheading">Tabla de Contenidos</h3>

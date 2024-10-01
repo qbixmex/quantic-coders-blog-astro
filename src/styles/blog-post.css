@@ -2,16 +2,24 @@
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-purple-500 mb-0;
 }
 
-.metadata-wrapper {
-  @apply my-8 flex flex-col gap-1;
+.metadata-author {
+  @apply flex flex-row gap-x-5 my-10;
 }
 
-.metadata {
-  @apply text-base m-0 sm:text-base text-gray-500 italic;
+.metadata-author-image {
+  @apply rounded-full size-[60px] border-2 border-slate-50;
+}
 
-  & a {
-    @apply capitalize italic text-sky-500 hover:text-sky-600 hover:underline;
-  }
+.metadata-author-info {
+  @apply flex flex-col justify-center;
+}
+
+.metadata-author-name {
+  @apply italic;
+}
+
+.metadata-date {
+  @apply text-slate-300 italic text-sm m-0;
 }
 
 .subheading {
