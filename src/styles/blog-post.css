@@ -2,8 +2,16 @@
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-purple-500 mb-0;
 }
 
-.metaData {
-  @apply text-sm sm:text-base text-gray-500 italic mt-2 mb-2;
+.metadata-wrapper {
+  @apply my-8 flex flex-col gap-1;
+}
+
+.metadata {
+  @apply text-base m-0 sm:text-base text-gray-500 italic;
+
+  & a {
+    @apply capitalize italic text-sky-500 hover:text-sky-600 hover:underline;
+  }
 }
 
 .subheading {

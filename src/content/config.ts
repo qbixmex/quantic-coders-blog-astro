@@ -1,7 +1,5 @@
-// 1. Import utilities from "astro:content".
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, reference } from "astro:content";
 
-// 2. Define a "type" and "schema" for each collection.
 const blogCollection = defineCollection({
   type: "content",
   schema: ({ image }) => z.object({
@@ -11,12 +9,20 @@ const blogCollection = defineCollection({
     }),
     date: z.date(),
     description: z.string(),
-    author: z.string(), // Relationship
+    author: reference("author"), // Relationship
     tags: z.array(z.string()), // Relationship
   }),
 });
 
-// 3. Export a single "collections" object to register your collection(s). 
+const authorsCollection = defineCollection({
+  type: "data",
+  schema: ({ image }) => z.object({
+    name: z.string(),
+    avatar: image(),
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
+  authors: authorsCollection,
 };

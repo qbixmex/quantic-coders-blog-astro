@@ -20,6 +20,7 @@ export const getStaticPaths = (async () => {
 const { post } = Astro.props;
 const frontmatter = post.data;
 const { Content, headings } = await post.render();
+const author = post.data.author.id.replaceAll("-", " ");
 ---
 
 <BlogLayout
@@ -37,8 +38,10 @@ const { Content, headings } = await post.render();
     transition:name={`${post.slug}-image`}
   />
 
-  <p class="metaData">Author: {frontmatter.author}</p>
-  <p class="metaData">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
+  <section class="metadata-wrapper">
+    <p class="metadata">Author: <a href="#">{author}</a></p>
+    <p class="metadata">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
+  </section>
 
   <h3 class="subheading">Tabla de Contenidos</h3>
 
