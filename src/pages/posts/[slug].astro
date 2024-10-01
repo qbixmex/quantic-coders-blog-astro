@@ -39,16 +39,18 @@ const author = (await getEntry("author", post.data.author.id)).data;
   />
 
   <section class="metadata-author">
-    <Image
-      src={author.avatar}
-      class="metadata-author-image"
-      width={50}
-      height={50}
-      alt={`${author.name} Avatar`}
-      quality="mid"
-    />
+    <a class="metadata-author-name" href={`/blog/${frontmatter.author.id}`}>
+      <Image
+        src={author.avatar}
+        class="metadata-author-image"
+        width={50}
+        height={50}
+        alt={`${author.name} Avatar`}
+        quality="mid"
+      />
+    </a>
     <div class="metadata-author-info">
-      <a class="metadata-author-name" href="#">{author.name}</a>
+      <a class="metadata-author-name" href={`/blog/${frontmatter.author.id}`}>{author.name}</a>
       <p class="metadata-date">Fecha: {Formatter.formatDate(frontmatter.date)}</p>
     </div>
   </section>
