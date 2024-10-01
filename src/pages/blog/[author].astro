@@ -16,7 +16,7 @@ export const getStaticPaths = (async () => {
     params: { author: author.id },
     props: {
       blogPosts: posts.filter((post) => {
-        return post.data.author.id === author.id;
+        return post.data.author.id === author.id && !post.data.isDraft;
       }),
       author: author.data,
     },

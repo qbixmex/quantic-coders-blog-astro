@@ -6,7 +6,9 @@ import { getCollection } from "astro:content";
 import "./_blog.css";
 import TypedBlogPost from "@components/TypedBlogPost.astro";
 
-const blogPosts = await getCollection("blog");
+const blogPosts = await getCollection("blog", (post) => {
+	return post.data.isDraft === false;
+});
 ---
 
 <MainLayout
