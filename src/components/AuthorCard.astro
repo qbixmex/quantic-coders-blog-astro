@@ -1,0 +1,70 @@
+---
+import type { Author } from '@interfaces/author';
+import Image from 'astro/components/Image.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  author: CollectionEntry<"author">;
+}
+
+const { author } = Astro.props;
+const { name, subtitle, avatar, twitter, linkedIn, github, bio } = author.data;
+---
+
+<section class="card">
+  <Image
+    src={ avatar }
+    width={128}
+    height={128}
+    class="image"
+    alt={name}
+    quality="low"
+  />
+  <h2 class="author-name">{ name }</h2>
+  <p class="job-title">{ subtitle }</p>
+  <div class="social-media">
+    <a href={`https://x.com/${twitter}`} class="social-link">Twitter</a>
+    <a href={ linkedIn } class="social-link">Linkedin</a>
+    <a href={ github } class="social-link">Github</a>
+  </div>
+  <div class="bio">
+    <h3 class="bio-title">Bio</h3>
+    <p class="bio-description">{ bio }</p>
+  </div>
+  <div class="mt-5 text-right">
+    <a class="btn-link" href={`/blog/${author.id}`}>Ver publicaciones</a>
+  </div>
+</section>
+
+<style>
+  .card {
+    @apply max-w-lg mx-auto bg-slate-800 rounded-lg p-6 border-2 border-slate-400;
+  }
+  .image {
+    @apply box-content size-32 border-4 border-slate-50 rounded-full mx-auto;
+  }
+  .author-name {
+    @apply text-center text-sky-500 text-2xl font-semibold mt-3
+  }
+  .job-title {
+    @apply text-center text-slate-400 mt-1;
+  }
+  .social-media {
+    @apply flex justify-center mt-5;
+  }
+  .social-link {
+    @apply text-sky-400 hover:text-blue-700 mx-3;
+  }
+  .bio {
+    @apply mt-10;
+  }
+  .bio-title {
+    @apply text-pink-500 text-xl font-semibold;
+  }
+  .bio-description {
+    @apply text-slate-200 mt-2 text-balance;
+  }
+  .btn-link {
+    @apply text-sky-400 hover:underline;
+  }
+</style>
