@@ -24,6 +24,13 @@ const { title, description, robots } = Astro.props;
 		<meta name="og:title" content={title} />
 		<meta name="og:description" content={description} />
 		<!-- <meta name="og:image" content={siteInfo.image} /> -->
+
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Quantic Coders Blog"
+			href={new URL("rss.xml", Astro.site)}
+		/>
 		<ViewTransitions />
 	</head>
 	<body>
