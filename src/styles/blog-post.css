@@ -27,7 +27,7 @@
 }
 
 #content-data {
-  @apply w-[400px] bg-slate-800 p-5 rounded flex flex-col gap-2;
+  @apply w-full bg-slate-800 p-5 rounded flex flex-col gap-2 md:max-w-xl;
 
   & p {
     @apply pl-2 m-0;
