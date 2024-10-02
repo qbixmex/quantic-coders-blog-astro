@@ -26,3 +26,7 @@ p {
 a {
   @apply text-blue-500 hover:underline;
 }
+
+.astro-code {
+  @apply p-5 rounded;
+}
