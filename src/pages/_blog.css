@@ -3,7 +3,7 @@
 }
 
 #content {
-  @apply container px-6 py-10 mx-auto;
+  @apply container px-2 py-10 mx-auto;
   & h1 {
     @apply text-4xl font-semibold capitalize lg:text-5xl text-purple-600;
   }
